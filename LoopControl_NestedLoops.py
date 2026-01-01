@@ -43,10 +43,64 @@
 
 # 🟡 Task 3 — Duplicate Detector (Nested Loops)
 # Given a list of numbers, print only the duplicates.
-numbers = [1, 2, 3, 2, 4, 5, 1]
+# numbers = [1, 2, 3, 2, 4, 5, 1]
+#
+# for i in range (len(numbers)):
+#     for j in range (i + 1, len(numbers)):
+#         if numbers[i] == numbers[j]:
+#             print(numbers[i])
 
-for i in range (len(numbers)):
-    for j in range (i + 1, len(numbers)):
-        if numbers[i] == numbers[j]:
-            print(numbers[i])
+# 🔴 Task 4 — Pair Generator
+# Given two lists:
+#
+# X = [1, 2, 3]
+# Y = ['a', 'b']
+# Print all possible pairs
 
+# x = [1, 2, 3]
+# y = ['a', 'b']
+#
+# for i in range (len(x)):
+#     for j in range (len(y)):
+#         print(f"({x[i]}, {y[j]})")
+
+# 🔴 Task 5 — Pattern Recognition
+# Print this pattern:
+#
+# 1 1 1 1
+# 2 2 2
+# 3 3
+# 4
+
+# for i in range(1, 5):
+#     for j in range(5 - i):
+#         print(i, end='')
+#     print()
+
+# 🔥 Bonus Task — Early Exit Optimization
+# Given a 2D list:
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+# Find the number 5 and:
+# Print "Found"
+# Stop all loops immediately
+
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+#
+# found = False
+#
+# for i in matrix:
+#     for j in i:
+#         if j == 5:
+#             found = True
+#             print("Found")
+#             break
+#     if found:
+#         break
