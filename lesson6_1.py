@@ -15,15 +15,15 @@
 #     print("Access denied")
 
 # Task 2
-admin = input("Are you an administrator? (yes/no): ").lower()
-is_admin = admin == "yes"
-ticket = input("Do you have a ticket (yes/no): ").lower()
-is_ticket = ticket == "yes"
-
-if is_admin or is_ticket:
-    print("Access granted")
-else:
-    print("Access denied")
+# admin = input("Are you an administrator? (yes/no): ").lower()
+# is_admin = admin == "yes"
+# ticket = input("Do you have a ticket (yes/no): ").lower()
+# is_ticket = ticket == "yes"
+#
+# if is_admin or is_ticket:
+#     print("Access granted")
+# else:
+#     print("Access denied")
 
 # Task 3
 # user_answer = input("Is your account blocked (yes/no): ").lower()
