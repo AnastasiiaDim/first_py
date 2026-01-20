@@ -6,6 +6,6 @@ capitals = {"USA": "Washington D.C",
 capital = input("Enter your key (country): ")
 
 if capital in capitals:
-    print("Key found")
+    print(capitals[capital])
 else:
     print("Key not found")
