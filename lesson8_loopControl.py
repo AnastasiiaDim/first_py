@@ -15,22 +15,22 @@
 #     print(number)
 
 #
-# TASK 3 -- Password Validator
-# password_correct = "python"
-# attempts = 0
-#
-# while attempts < 3:
-#     guess = input("Enter your password: ")
-#     if guess == password_correct:
-#         print("Access granted")
-#         break
-#     elif guess == "":
-#         print("Empty password, try again")
-#         continue
-#     else:
-#         attempts += 1
-#     if attempts < 3:
-#         print("Incorrect password. Attempts left: ", 3 - attempts)
-#
-# if attempts == 3:
-#     print("Access denied")
+TASK 3 -- Password Validator
+password_correct = "python"
+attempts = 0
+
+while attempts < 3:
+    guess = input("Enter your password: ")
+    if guess == password_correct:
+        print("Access granted")
+        break
+    elif guess == "":
+        print("Empty password, try again")
+        continue
+    else:
+        attempts += 1
+    if attempts < 3:
+        print("Incorrect password. Attempts left: ", 3 - attempts)
+
+if attempts == 3:
+    print("Access denied")
