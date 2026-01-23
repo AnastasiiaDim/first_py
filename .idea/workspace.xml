@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2a77a1e-2ac6-427b-afe8-066a092e3050" name="Changes" comment="feat: solved task in Dictionaries">
+      <change afterPath="$PROJECT_DIR$/Practice_Dic_Func_Set_Tup/solution_task4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
