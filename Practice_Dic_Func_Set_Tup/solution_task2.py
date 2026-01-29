@@ -1,6 +1,5 @@
 def skills_list(skills):
-    unique_count = len(set(skills)) # len returns amount, set removes duplicates
-    print(unique_count)
+    return len(set(skills)) # len returns amount, set removes duplicates
 
 skills_list(["python", "java", "python", "sql", "json", "python"])
 
