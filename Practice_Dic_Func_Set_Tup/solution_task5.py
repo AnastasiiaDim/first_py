@@ -11,7 +11,7 @@ def get_valid_users(data):
     for user in data:
         age = user.get("age")
 
-        if age is not None and age > 18:
+        if age is not None and age >= 18:
             valid_users.append(user)
 
     return valid_users
