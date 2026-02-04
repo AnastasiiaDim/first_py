@@ -54,6 +54,9 @@ def main_controller():
 
         while True:
             action  = input(f"What do you want to do? (or type 'exit' to exit): ").lower()
+            if action == "exit":
+                print("Logging out...")
+                break
 
             if has_permission(user_role, action):
                 print("Success! Action Allowed!")
