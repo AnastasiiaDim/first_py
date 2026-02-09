@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2a77a1e-2ac6-427b-afe8-066a092e3050" name="Changes" comment="edit: task in System Design">
+    <list default="true" id="e2a77a1e-2ac6-427b-afe8-066a092e3050" name="Changes" comment="feat: Rock Paper Scissors Game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +51,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.List_Methods.executor": "Run",
     "Python.Secure_User_Access_System.executor": "Run",
+    "Python.rock_paper_scissors.executor": "Run",
     "Python.solution.executor": "Run",
     "Python.solution_task1.executor": "Run",
     "Python.solution_task2.executor": "Run",
@@ -297,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770202390465</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="feat: Rock Paper Scissors Game">
+      <option name="closed" value="true" />
+      <created>1770488030885</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1770488030885</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +322,8 @@
     <MESSAGE value="feat: solved task in Dictionaries" />
     <MESSAGE value="feat: solved task in System Design" />
     <MESSAGE value="edit: task in System Design" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit: task in System Design" />
+    <MESSAGE value="feat: Rock Paper Scissors Game" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Rock Paper Scissors Game" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/My_First_Py$solution_task6.coverage" NAME="solution_task6 Coverage Results" MODIFIED="1767981178631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Functions" />
