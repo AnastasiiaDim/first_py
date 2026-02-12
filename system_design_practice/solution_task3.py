@@ -1,3 +1,5 @@
+# Config Management System
+
 CONFIG = (
     ("Title", "My Awesome App"),
     ("Version", 3.14),
