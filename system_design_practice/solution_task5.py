@@ -15,9 +15,11 @@ def is_valid_record(record):
     return True
 
 def filter_valid_records(data_to_filter):
-    valid_records = []
-    for record in data_to_filter:
-        if is_valid_record(record):
-            valid_records.append(record)
+    valid_records = list(filter(is_valid_record, data_to_filter))
+    return valid_records
+    # valid_records = []
+    # for record in data_to_filter:
+    #     if is_valid_record(record):
+    #         valid_records.append(record)
 
 
