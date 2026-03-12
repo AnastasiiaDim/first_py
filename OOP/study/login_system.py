@@ -18,7 +18,6 @@ class AuthSystem:
         return self.users[username].password == password
 
 system = AuthSystem()
-
 system.add_user(User("ana", 21, "user", "python"))
 system.add_user(User("admin", 30, "admin", "system"))
 
