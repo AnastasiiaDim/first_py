@@ -4,9 +4,7 @@ class User:
         self.role = role
 
     def is_admin(self):
-        if self.role == "admin":
-            return True
-        return False
+        return self.role == "admin"
 
 user1 = User("ana", "admin")
 user2 = User("python", "user")

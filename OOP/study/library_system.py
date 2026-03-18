@@ -25,6 +25,7 @@ class Library:
         print("-------Library Inventory-------")
         if not self.books:
             print("The library is empty")
+            return
         for book in self.books:
             print(f"Book: {book.title}")
 

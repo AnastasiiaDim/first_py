@@ -1,4 +1,4 @@
-class Car1:
+class Car:
     def __init__(self, brand, model, color):
         self.brand = brand
         self.model = model
@@ -12,13 +12,11 @@ class Car1:
 
     def drive(self):
         if not self.is_engine_on:
-            print("Error: You cannot drive. The engine is OFF!")
-            return False
+            return "Error: You cannot drive. The engine is OFF!"
 
-        print(f"Driving {self.brand} {self.model} in {self.color} color")
-        return True
+        return f"Driving {self.brand} {self.model} in {self.color} color"
 
-my_car = Car1("Porsche", "Panamera", "burgundy")
+my_car = Car("Porsche", "Panamera", "burgundy")
 my_car.drive()
 
 my_car.start_engine()
