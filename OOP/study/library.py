@@ -1,0 +1,48 @@
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def __str__(self):
+        return f"'{self.title}' by {self.author} ({self.pages} pages)"
+
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_book(self, book_instance):
+        if any(book.title == book_instance.title for book in self.books):
+            return
+        self.books.append(book_instance)
+
+    def get_long_books(self):
+        return [book for book in self.books if book.pages > 300]
+
+    def find_by_author(self, author_name):
+        search_term = author_name.lower()
+        return [book for book in self.books if search_term in book.author.lower()]
+
+    def __str__(self):
+        if not self.books:
+            return "Library: empty"
+        book_list = "\n".join(f"  -  {book}" for book in self.books)
+        return f"Library: {len(self.books)} book(s)\n{book_list}"
+
+lib = Library()
+
+b1 = Book("1984", "George Orwell", 328)
+b2 = Book("Animal Farm", "orwell", 112)
+b3 = Book("The Hobbit", "Tolkien", 310)
+
+lib.add_book(b1)
+lib.add_book(b2)
+lib.add_book(b3)
+lib.add_book(Book("1984", "Orwell", 328))
+
+print(lib)
+print(f"Long books: {[book.title for book in lib.get_long_books()]}")
+print(f"Orwell books: {[book.title for book in lib.find_by_author('ORWELL')]}")
+
+
+
