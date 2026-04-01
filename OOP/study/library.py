@@ -24,11 +24,10 @@ class Library:
         return [book for book in self.books if search_term in book.author.lower()]
 
     def remove_book(self, title):
-        book_to_remove = None
-        for book in self.books:
-            if book.title.lower() == title.lower():
-                book_to_remove = book
-                break
+        book_to_remove =next(
+            (book for book in self.books if book.title.lower() == title.lower()),
+            None
+        )
 
         if book_to_remove:
             self.books.remove(book_to_remove)
