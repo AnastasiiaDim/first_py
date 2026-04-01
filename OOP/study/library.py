@@ -49,4 +49,8 @@ try:
 except ValueError as e:
     print(f"Error: {e}")
 
+try:
+    print(lib.get_most_pages())
+except ValueError as e:
+    print(f"Error: {e}")
 
