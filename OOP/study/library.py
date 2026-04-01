@@ -29,15 +29,13 @@ class Library:
             None
         )
 
-        if book_to_remove:
-            self.books.remove(book_to_remove)
-            return f"Successfully removed book '{book_to_remove.title}' from library"
-        else:
+        if book_to_remove is None:
             raise ValueError(f"Book '{title}' not found in library.")
+        self.books.remove(book_to_remove)
 
     def get_most_pages(self):
         if not self.books:
-            raise ValueError(f"There are no books in library")
+            raise ValueError("There are no books in library")
 
         return max(self.books, key=lambda book: book.pages)
 
@@ -71,4 +69,3 @@ try:
     print(lib.get_most_pages())
 except ValueError as e:
     print(f"Error: {e}")
-
