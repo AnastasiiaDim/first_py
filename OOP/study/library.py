@@ -23,6 +23,25 @@ class Library:
         search_term = author_name.lower()
         return [book for book in self.books if search_term in book.author.lower()]
 
+    def remove_book(self, title):
+        book_to_remove = None
+        for book in self.books:
+            if book.title.lower() == title.lower():
+                book_to_remove = book
+                break
+
+        if book_to_remove:
+            self.books.remove(book_to_remove)
+            return f"Successfully removed book '{book_to_remove.title}' from library"
+        else:
+            raise ValueError(f"Book '{title}' not found in library.")
+
+    def get_most_pages(self):
+        if not self.books:
+            raise ValueError(f"There are no books in library")
+
+        return max(self.books, key=lambda book: book.pages)
+
     def __str__(self):
         if not self.books:
             return "Library: empty"
