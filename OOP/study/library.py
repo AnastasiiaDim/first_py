@@ -44,5 +44,9 @@ print(lib)
 print(f"Long books: {[book.title for book in lib.get_long_books()]}")
 print(f"Orwell books: {[book.title for book in lib.find_by_author('ORWELL')]}")
 
+try:
+    print(lib.remove_book("Moby Dick"))
+except ValueError as e:
+    print(f"Error: {e}")
 
 
