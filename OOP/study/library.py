@@ -1,5 +1,7 @@
 class Book:
     def __init__(self, title, author, pages):
+        if pages <= 0:
+            raise ValueError("Pages must be a positive number.")
         self.title = title
         self.author = author
         self.pages = pages
@@ -12,8 +14,8 @@ class Library:
         self.books = []
 
     def add_book(self, book_instance):
-        if any(book.title == book_instance.title for book in self.books):
-            return
+        if any(book.title.lower() == book_instance.title.lower() for book in self.books):
+            raise ValueError(f"'{book_instance.title}' already exists in the library.")
         self.books.append(book_instance)
 
     def get_long_books(self):

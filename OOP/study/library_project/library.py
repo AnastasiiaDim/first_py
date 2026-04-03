@@ -9,6 +9,14 @@ class Library:
             return
         self.books.append(book_instance)
 
+    def show_books(self):
+        print("-------Library Inventory-------")
+        if not self.books:
+            print("The library is empty")
+            return
+        for book in self.books:
+            print(f"Book: {book.title} by {book.author} ({book.pages} pages)")
+
     def get_long_books(self):
         return [book for book in self.books if book.pages > 300]
 
@@ -17,7 +25,7 @@ class Library:
         return [book for book in self.books if search_term in book.author.lower()]
 
     def remove_book(self, title):
-        book_to_remove =next(
+        book_to_remove = next(
             (book for book in self.books if book.title.lower() == title.lower()),
             None
         )
