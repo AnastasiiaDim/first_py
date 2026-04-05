@@ -1,4 +1,4 @@
-from book import Book
+from book import Book, InvalidPageCount, BookNotFoundError
 
 class Library:
     def __init__(self):
@@ -6,7 +6,7 @@ class Library:
 
     def add_book(self, book_instance):
         if any(book.title == book_instance.title for book in self.books):
-            return
+            raise ValueError(f"{book_instance.title} already exists in library")
         self.books.append(book_instance)
 
     def show_books(self):
@@ -24,6 +24,10 @@ class Library:
         search_term = author_name.lower()
         return [book for book in self.books if search_term in book.author.lower()]
 
+    def find_by_genre(self, genre_name):
+        search_term = genre_name.lower()
+        return [book for book in self.books if search_term in book.genre.lower()]
+
     def remove_book(self, title):
         book_to_remove = next(
             (book for book in self.books if book.title.lower() == title.lower()),
@@ -31,7 +35,7 @@ class Library:
         )
 
         if book_to_remove is None:
-            raise ValueError(f"Book '{title}' not found in library.")
+            raise BookNotFoundError(f"Book '{title}' not found in library.")
         self.books.remove(book_to_remove)
 
     def get_most_pages(self):
