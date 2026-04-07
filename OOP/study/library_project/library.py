@@ -1,4 +1,6 @@
 from book import Book, InvalidPageCount, BookNotFoundError
+import os
+import json
 
 class Library:
     def __init__(self):
@@ -43,6 +45,24 @@ class Library:
             raise ValueError("There are no books in library")
 
         return max(self.books, key=lambda book: book.pages)
+
+    def save_to_file(self, filename):
+        data = [book.to_dict() for book in self.books]
+        with open(filename, "w") as f:
+            json.dump(data, f, indent=4)
+
+    def load_from_file(self, filename):
+        if not os.path.isfile(filename):
+            return "No saved library found. Starting fresh."
+
+        try:
+            with open(filename, "r") as f:
+                data = json.load(f)
+                self.books = [Book.from_dict(item) for item in data]
+        except (json.JSONDecodeError, IOError):
+            self.books = []
+            return "Error reading from file. Please check the file and try again."
+
 
     def __str__(self):
         if not self.books:
