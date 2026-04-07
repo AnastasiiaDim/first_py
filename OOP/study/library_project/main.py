@@ -2,7 +2,7 @@ from library import Library
 from book import Book, InvalidPageCount, BookNotFoundError
 
 lib = Library()
-
+lib.load_from_file("library.json")
 # CLI
 print("Welcome to the library!")
 while True:
@@ -35,6 +35,8 @@ while True:
         except InvalidPageCount as e:
             print(f"Error: {e}")
 
+        lib.save_to_file("library.json")
+
     elif choice == "2":
         print(lib)
 
@@ -65,6 +67,8 @@ while True:
             print(f"Successfully removed '{title_to_remove}'.")
         except BookNotFoundError as e:
             print(f"Error: {e}")
+
+        lib.save_to_file("library.json")
 
     elif choice == "6":
         try:
