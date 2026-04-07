@@ -13,6 +13,16 @@ class Book:
         self.pages = pages
         self.genre = genre
 
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "author": self.author,
+            "pages": self.pages,
+            "genre": self.genre
+        }
+    @classmethod
+    def from_dict(cls, data):
+        return cls(**data)
 
     def __str__(self):
         return f"'{self.title}' by {self.author} ({self.pages} pages, genre: {self.genre})"
