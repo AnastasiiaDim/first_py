@@ -52,17 +52,16 @@ class Library:
             json.dump(data, f, indent=4)
 
     def load_from_file(self, filename):
-        if not os.path.isfile(filename):
-            return "No saved library found. Starting fresh."
+        if not os.path.exists(filename):
+            return
 
         try:
             with open(filename, "r") as f:
                 data = json.load(f)
                 self.books = [Book.from_dict(item) for item in data]
-        except (json.JSONDecodeError, IOError):
+        except (json.JSONDecodeError, IOError, InvalidPageCount, KeyError):
             self.books = []
-            return "Error reading from file. Please check the file and try again."
-
+            print("Error reading from file. Please check the file and try again.")
 
     def __str__(self):
         if not self.books:
