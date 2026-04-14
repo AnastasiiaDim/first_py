@@ -23,6 +23,7 @@ class Student:
 
     def __str__(self):
         text = f"Student name: {self.name} || Type: {self.pay_type}"
+
         if self.pay_type == "deposit":
             text += f" | Lessons left: {self.get_lessons_left()}"
         else:
