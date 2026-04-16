@@ -23,6 +23,7 @@ class DBManager:
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         student_id INTEGER,
         lesson_date TEXT,
+        is_paid INTEGER DEFAULT 0,
         FOREIGN KEY(student_id) REFERENCES students(id)
         )
     """)
@@ -80,16 +81,32 @@ class DBManager:
         return students_objects
 
     def count_lessons(self, student_id):
-        sql = "SELECT COUNT(*) FROM lessons WHERE student_id = ?"
+        sql = "SELECT COUNT(*) FROM lessons WHERE student_id = ? AND is_paid = 0"
         self.cursor.execute(sql, (student_id,))
         result = self.cursor.fetchone()
         return result[0]
 
     def delete_student(self, student_id):
+        sql_lessons = "DELETE FROM lessons WHERE student_id = ?"
+        self.cursor.execute(sql_lessons, (student_id,))
+        self.connection.commit()
 
+    def debt_paid(self, student_id, amount, pay_type):
+        if pay_type == "deposit":
+            sql_debt = "UPDATE students SET balance = balance + ? WHERE student_id = ?"
+            self.cursor.execute(sql_debt, (amount, student_id))
 
-    def execute_query(self):
-        pass
+        else:
+            if pay_type == "postpay":
+                sql_postpay = "UPDATE students SET is_paid = 1 WHERE student_id = ? and is_paid = 0"
+                self.cursor.execute(sql_postpay, (student_id,))
+
+        self.connection.commit()
+
+    def execute_query(self, sql, params=None):
+        params = params or ()
+        self.cursor.execute(sql, params)
+        self.connection.commit()
 
     def fetch_students(self):
         pass
