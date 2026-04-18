@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2a77a1e-2ac6-427b-afe8-066a092e3050" name="Changes" comment="feat: task in System Design Practice" />
+    <list default="true" id="e2a77a1e-2ac6-427b-afe8-066a092e3050" name="Changes" comment="feat: app framework started in Teacher Calculator">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teacher_calculator/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/teacher_calculator/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teacher_calculator/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/teacher_calculator/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teacher_calculator/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/teacher_calculator/models.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,18 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "MERGED",
-      "assignee": "AnastasiiaDim"
+      &quot;state&quot;: &quot;MERGED&quot;,
+      &quot;assignee&quot;: &quot;AnastasiiaDim&quot;
     }
   ],
-  "lastFilter": {
-    "state": "MERGED",
-    "assignee": "AnastasiiaDim"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;MERGED&quot;,
+    &quot;assignee&quot;: &quot;AnastasiiaDim&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AnastasiiaDim/esson3_input.git&quot;,
@@ -41,6 +46,9 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -55,7 +63,9 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.List_Methods.executor&quot;: &quot;Run&quot;,
     &quot;Python.Secure_User_Access_System.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
     &quot;Python.basic_practice.executor&quot;: &quot;Run&quot;,
+    &quot;Python.database.executor&quot;: &quot;Run&quot;,
     &quot;Python.rock_paper_scissors.executor&quot;: &quot;Run&quot;,
     &quot;Python.shipping.executor&quot;: &quot;Run&quot;,
     &quot;Python.solution.executor&quot;: &quot;Run&quot;,
@@ -67,8 +77,10 @@
     &quot;Python.solution_task6.executor&quot;: &quot;Run&quot;,
     &quot;Python.solution_task7.executor&quot;: &quot;Run&quot;,
     &quot;Python.solution_task8.executor&quot;: &quot;Run&quot;,
+    &quot;Python.time_travelers_toolkit.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
@@ -86,6 +98,36 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="time_travelers_toolkit" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="My_First_Py" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/time_traveler" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/time_traveler/time_travelers_toolkit.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.time_travelers_toolkit" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -368,7 +410,79 @@
       <option name="project" value="LOCAL" />
       <updated>1770913096384</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="improvements added: Library project">
+      <option name="closed" value="true" />
+      <created>1775412527383</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1775412527391</updated>
+    </task>
+    <task id="LOCAL-00034" summary="to_dict and from_dict methods added to Book class">
+      <option name="closed" value="true" />
+      <created>1775584370305</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1775584370305</updated>
+    </task>
+    <task id="LOCAL-00035" summary="save_to_file and load_from_file methods added to Library class">
+      <option name="closed" value="true" />
+      <created>1775585587500</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1775585587500</updated>
+    </task>
+    <task id="LOCAL-00036" summary="save_to_file method added to Main">
+      <option name="closed" value="true" />
+      <created>1775585959600</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1775585959600</updated>
+    </task>
+    <task id="LOCAL-00037" summary="edit: library.py">
+      <option name="closed" value="true" />
+      <created>1775631703889</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1775631703889</updated>
+    </task>
+    <task id="LOCAL-00038" summary="worked with modules (Decimal, datetime, random)">
+      <option name="closed" value="true" />
+      <created>1775661320187</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1775661320187</updated>
+    </task>
+    <task id="LOCAL-00039" summary="new project started: Teacher Calculator">
+      <option name="closed" value="true" />
+      <created>1775896610473</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1775896610473</updated>
+    </task>
+    <task id="LOCAL-00040" summary="added: create_tables, add_student, record_lesson, get_all_students, count_lessons methods in Teacher Calculator">
+      <option name="closed" value="true" />
+      <created>1776184869580</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1776184869580</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feat: app framework started in Teacher Calculator">
+      <option name="closed" value="true" />
+      <created>1776340415778</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1776340415778</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,7 +502,16 @@
     <MESSAGE value="feat: task Shipping (CodeCademy)" />
     <MESSAGE value="edit: task in System Design Practice" />
     <MESSAGE value="feat: task in System Design Practice" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: task in System Design Practice" />
+    <MESSAGE value="improvements added: Library project" />
+    <MESSAGE value="to_dict and from_dict methods added to Book class" />
+    <MESSAGE value="save_to_file and load_from_file methods added to Library class" />
+    <MESSAGE value="save_to_file method added to Main" />
+    <MESSAGE value="edit: library.py" />
+    <MESSAGE value="worked with modules (Decimal, datetime, random)" />
+    <MESSAGE value="new project started: Teacher Calculator" />
+    <MESSAGE value="added: create_tables, add_student, record_lesson, get_all_students, count_lessons methods in Teacher Calculator" />
+    <MESSAGE value="feat: app framework started in Teacher Calculator" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: app framework started in Teacher Calculator" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/My_First_Py$solution_task6.coverage" NAME="solution_task6 Coverage Results" MODIFIED="1767981178631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Functions" />

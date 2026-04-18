@@ -12,14 +12,12 @@ class Student:
     def get_lessons_left(self):
         if self.pay_type == "deposit":
             return round(self.balance / self.price, 1)
-        else:
-            return 0
+        return 0
 
     def calculate_debt(self):
         if self.pay_type == "postpay":
             return self.lessons_had * self.price
-        else:
-            return 0
+        return 0
 
     def __str__(self):
         text = f"Student name: {self.name} || Type: {self.pay_type}"

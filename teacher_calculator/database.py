@@ -4,7 +4,7 @@ from models import Student
 
 class DBManager:
     def __init__(self, db_path="tutor.db"):
-        self.connection = sqlite3.connect(db_path)
+        self.connection = sqlite3.connect(db_path, check_same_thread=False)
         self.cursor = self.connection.cursor()
         self.create_tables()
 
@@ -38,12 +38,12 @@ class DBManager:
         self.cursor.execute(sql_query, data)
         self.connection.commit()
 
-    def record_lesson(self, student_id):
-        now = datetime.now()
-        today_date = now.strftime("%Y-%m-%d")
+    def record_lesson(self, student_id, date=None):
+        if date is None:
+            date = datetime.now().strftime("%Y-%m-%d")
 
         sql_query1 = "INSERT INTO lessons (student_id, lesson_date) VALUES (?, ?)"
-        data1 = (student_id, today_date)
+        data1 = (student_id, date)
         self.cursor.execute(sql_query1, data1)
         self.connection.commit()
 
