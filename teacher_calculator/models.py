@@ -1,7 +1,10 @@
+class InvalidPrice(Exception):
+    pass
+
 class Student:
     def __init__(self, student_id, name, price, pay_type, balance, lessons_had):
         if price <= 0:
-            raise ZeroDivisionError("Price cannot be negative")
+            raise InvalidPrice("Price must be greater than zero.")
         self.student_id = student_id
         self.name = name
         self.price = price

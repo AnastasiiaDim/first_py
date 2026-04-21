@@ -97,12 +97,12 @@ class DBManager:
 
     def debt_paid(self, student_id, amount, pay_type):
         if pay_type == "deposit":
-            sql_debt = "UPDATE students SET balance = balance + ? WHERE student_id = ?"
+            sql_debt = "UPDATE students SET balance = balance + ? WHERE id = ?"
             self.cursor.execute(sql_debt, (amount, student_id))
 
         else:
             if pay_type == "postpay":
-                sql_postpay = "UPDATE students SET is_paid = 1 WHERE student_id = ? and is_paid = 0"
+                sql_postpay = "UPDATE lessons SET is_paid = 1 WHERE student_id = ? AND is_paid = 0"
                 self.cursor.execute(sql_postpay, (student_id,))
 
         self.connection.commit()
@@ -111,10 +111,4 @@ class DBManager:
         params = params or ()
         self.cursor.execute(sql, params)
         self.connection.commit()
-
-    def fetch_students(self):
-        pass
-
-    def fetch_lessons(self):
-        pass
 
