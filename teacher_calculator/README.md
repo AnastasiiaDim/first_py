@@ -12,8 +12,11 @@ student's individual rate.
 
 ### **🛠️ Tech Stack**
 **Language:** Python 3.14
+
 **Framework:** Streamlit (Web Interface)
+
 **Database:** SQLite3
+
 **Architecture:** Modular design with separate layers for Data Management (database.py), 
 Data Models (models.py), and UI (app.py).
 
