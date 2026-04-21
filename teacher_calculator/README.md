@@ -20,8 +20,11 @@ Data Models (models.py), and UI (app.py).
 ### **📁 Project Structure**
 teacher_calculator/
 ├── app.py             # Main UI and application logic
+
 ├── database.py        # SQL queries and DB connection management
+
 ├── models.py          # Data classes (Student/Lesson objects)
+
 └── tutor.db           # SQLite database file (auto-generated)
 
 
