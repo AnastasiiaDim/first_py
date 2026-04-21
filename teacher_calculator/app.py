@@ -44,13 +44,14 @@ elif choice == "Add student":
     pay_type = st.selectbox("Pay type", ["deposit", "postpay"])
     balance = st.number_input("Student balance (if it is)", min_value=0)
 
-    if not name:
-        st.error("Please enter a name.")
-    else:
-        db.add_student(name, price, pay_type, balance)
-        st.success(f"Student {name} added!")
-        st.balloons()
-        st.rerun()
+    if st.button("Add student"):
+        if name:
+            db.add_student(name, price, pay_type, balance)
+            st.success(f"Student {name} added!")
+            st.balloons()
+            st.rerun()
+        else:
+            st.error("Please enter a name")
 
 elif choice == "Mark lesson":
     st.header("📝 Record a Lesson")
