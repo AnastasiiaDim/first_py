@@ -1,0 +1,11 @@
+tutor.db
+tutor.db-journal
+tutor.db-wal
+
+__pycache__/
+.idea/
+.venv/
+venv/
+
+.DS_Store
+Thumbs.db
