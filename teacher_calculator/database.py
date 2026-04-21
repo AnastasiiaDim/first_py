@@ -11,13 +11,13 @@ class DBManager:
     def create_tables(self):
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS students (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            price INTEGER NOT NULL,
-            pay_type TEXT NOT NULL,
-            balance REAL DEFAULT 0
-        )
-    """)
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                price INTEGER NOT NULL,
+                pay_type TEXT NOT NULL,
+                balance REAL DEFAULT 0
+            )
+        """)
         self.cursor.execute("""
         CREATE TABLE IF NOT EXISTS lessons (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -50,7 +50,7 @@ class DBManager:
         sql_query2 = """
         UPDATE students
         SET balance = balance - price
-        WHERE student_id = ? AND pay_type = "deposit"
+        WHERE id = ? AND pay_type = "deposit"
         """
         data2 = (student_id,)
         self.cursor.execute(sql_query2, data2)
@@ -86,9 +86,13 @@ class DBManager:
         result = self.cursor.fetchone()
         return result[0]
 
-    def delete_student(self, student_id):
+    def delete_student(self, student_id_from_py):
+        sql = "DELETE FROM students WHERE id = ?"
+        self.cursor.execute(sql, (student_id_from_py,))
+
         sql_lessons = "DELETE FROM lessons WHERE student_id = ?"
-        self.cursor.execute(sql_lessons, (student_id,))
+        self.cursor.execute(sql_lessons, (student_id_from_py,))
+
         self.connection.commit()
 
     def debt_paid(self, student_id, amount, pay_type):
