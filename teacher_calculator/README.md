@@ -19,6 +19,7 @@ Data Models (models.py), and UI (app.py).
 
 ### **📁 Project Structure**
 teacher_calculator/
+
 ├── app.py             # Main UI and application logic
 
 ├── database.py        # SQL queries and DB connection management
