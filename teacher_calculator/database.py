@@ -1,6 +1,10 @@
+import logger_config
+import logging
 import sqlite3
 from datetime import datetime
 from models import Student
+
+logger = logging.getLogger(__name__)
 
 class DBManager:
     def __init__(self, db_path="tutor.db"):
@@ -80,6 +84,25 @@ class DBManager:
 
         return students_objects
 
+    def get_student_by_id(self, student_id):
+        sql = "SELECT id, name, price, pay_type, balance FROM students WHERE id = ?"
+        self.cursor.execute(sql, (student_id,))
+        row = self.cursor.fetchone()
+
+        if row:
+            lessons_amount = self.count_lessons(row[0])
+
+            return Student(
+                student_id = row[0],
+                name = row[1],
+                price = row[2],
+                pay_type = row[3],
+                balance = row[4],
+                lessons_had = lessons_amount
+            )
+        logger.warning(f"Student with id {student_id} not found")
+        return None
+
     def count_lessons(self, student_id):
         sql = "SELECT COUNT(*) FROM lessons WHERE student_id = ? AND is_paid = 0"
         self.cursor.execute(sql, (student_id,))
@@ -95,6 +118,8 @@ class DBManager:
 
         self.connection.commit()
 
+        logger.info(f"Student with ID {student_id_from_py} deleted")
+
     def debt_paid(self, student_id, amount, pay_type):
         if pay_type == "deposit":
             sql_debt = "UPDATE students SET balance = balance + ? WHERE id = ?"
@@ -108,7 +133,19 @@ class DBManager:
         self.connection.commit()
 
     def execute_query(self, sql, params=None):
+        logger.debug(f"Executing query: {sql} with params: {params}")
         params = params or ()
-        self.cursor.execute(sql, params)
-        self.connection.commit()
 
+        try:
+            if params:
+                self.cursor.execute(sql, params)
+            else:
+                self.cursor.execute(sql)
+
+            self.connection.commit()
+
+            logger.debug("Query executed successfully")
+
+        except Exception as e:
+            logger.error(f"Database error during query '{sql}': {e}")
+            raise e

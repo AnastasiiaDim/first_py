@@ -1,7 +1,11 @@
+import logger_config
+import logging
 import streamlit as st
 from database import DBManager
 from datetime import datetime
 from models import Student
+
+logger = logging.getLogger(__name__)
 
 st.set_page_config(page_title="TutorCalc", layout="wide")
 st.title("🧮 Teacher Calculator")
@@ -46,27 +50,39 @@ elif choice == "Add student":
 
     if st.button("Add student"):
         if name:
+            logger.info(f"User is adding a new student: {name}.")
             db.add_student(name, price, pay_type, balance)
             st.success(f"Student {name} added!")
             st.balloons()
             st.rerun()
         else:
+            logger.warning("User tried to add a student without a name.")
             st.error("Please enter a name")
 
 elif choice == "Mark lesson":
     st.header("📝 Record a Lesson")
-
     students = db.get_all_students()
-
     student_dict = {s.name: s.student_id for s in students}
+
     selected_name = st.selectbox("Select box", options=student_dict.keys())
 
-    with st.form("lesson_form", clear_on_submit=True):
-        submitted = st.form_submit_button("Mark Lesson")
-        if submitted:
-            target_id = student_dict[selected_name]
-            db.record_lesson(target_id)
-            st.success(f"Lesson for {selected_name} recorded!")
+    if st.button("Record Lesson"):
+        target_id = student_dict[selected_name]
+
+        db.record_lesson(target_id)
+
+        student_data = db.get_student_by_id(target_id)
+        current_balance = student_data.balance
+        lesson_price = student_data.price
+
+        logging.info(f"Lesson recorded for {selected_name}. ID: {target_id}")
+
+        if current_balance < lesson_price:
+            logger.warning(f"Low balance for {selected_name} : {current_balance} left.")
+            st.warning(f"Note: {selected_name} has low balance.")
+
+        st.success(f"Lesson {selected_name} recorded!")
+        st.rerun()
 
 elif choice == "Payment":
     st.header("💰 Receive Payment")
@@ -90,12 +106,12 @@ elif choice == "Payment":
         amount = st.number_input("Amount Paid", min_value=0.0, step=5.0)
 
         if st.button("Confirm Payment"):
+            logger.info(f"Payment received: {amount} from {selected_name} ({chosen_student.pay_type}).")
             db.debt_paid(
                 student_id=chosen_student.student_id,
                 amount=amount,
                 pay_type=chosen_student.pay_type
             )
-
             st.success(f"Payment of {amount} for {selected_name} successful!")
             st.balloons()
 
@@ -114,6 +130,7 @@ elif choice == "Settings / Delete":
         col1, col2 = st.columns(2)
         with col1:
             if st.button("Yes", key="del_yes"):
+                logger.warning(f"Student deleted: {selected_label} (ID: {target_id}).")
                 db.delete_student(target_id)
                 st.toast(f"Student {selected_label} removed!")
                 st.rerun()
