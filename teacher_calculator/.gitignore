@@ -1,6 +1,7 @@
 tutor.db
 tutor.db-journal
 tutor.db-wal
+*.log
 
 __pycache__/
 .idea/
